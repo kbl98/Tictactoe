@@ -5,7 +5,43 @@ body{
     display:flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
+
+.player-panel{
+    margin-bottom:60px;
+    display:flex;
+    align-items: center;
+    width:399px;
+    justify-content: space-between;
+}
+
+.bg-active{
+    background-color: rgba(254, 213, 99, 0.373);
+}
+
+#player-1{
+    display:flex;
+    align-items: center;
+}
+
+#player-2{
+    display:flex;
+    align-items: center;
+}
+
+#player-1 img{
+    width:50px;
+    height:50px;
+    margin-right:20px;
+}
+
+#player-2 img{
+    width:50px;
+    height:50px;
+    margin-right:20px;
+}
+
 
 table{
     width:399px;
@@ -42,7 +78,7 @@ table tr td:last-child{
     border-right:0;
 }
 
-img{
+.shape{
     width:120px;
     height:120px;
     position:absolute;
