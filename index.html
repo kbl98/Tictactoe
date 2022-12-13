@@ -9,6 +9,9 @@
     <script src="script.js"></script>
 </head>
 <body>
+    <div id="winner" class="d-none"></div>
+    <img class="gameover d-none" id="gameover" src="img/gameover.jpg">
+    <button id="restart" class="d-none" onclick="restart()">Neues Spiel</button>
     <div class="player-panel">
         <div id="player-1" class="bg-active">
             <img src="img/kreuz.png">
@@ -20,6 +23,14 @@
         </div>
     
     </div>
+    <div id="line0" class="horizontal-line" style="top:365px"></div>
+    <div id="line1" class="horizontal-line" style="top:500px"></div>
+    <div id="line2"class="horizontal-line" style="top:635px"></div>
+    <div id="line3"class="horizontal-line make-vertical" style="left:200px"></div>
+    <div id="line4"class="horizontal-line make-vertical" style="left:335px"></div>
+    <div id="line5"class="horizontal-line make-vertical" style="left:470px"></div>
+    <div id="line6"class="horizontal-line" style="top:505px;transform:rotate(45deg) scaleX(0.0)"></div>
+    <div id="line7"class="horizontal-line" style="top:505px;transform:rotate(-45deg) scaleX(0.0)"></div>
     <table>
         <tr>
             <td id="field0" onclick="fillShape(0)">
