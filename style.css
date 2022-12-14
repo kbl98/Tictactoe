@@ -1,203 +1,273 @@
-body{
-    margin: 0;
-    height:100vh;
-    width:100%;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+body {
+  margin: 0;
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.player-panel{
-    margin-bottom:60px;
-    display:flex;
-    align-items: center;
-    width:399px;
-    justify-content: space-between;
+#container-game {
+  position: relative;
+  width: 800px;
+  height: 700px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.bg-active{
-    background-color: rgba(254, 213, 99, 0.373);
+.player-panel {
+  margin-bottom: 60px;
+  display: flex;
+  align-items: center;
+  width: 399px;
+  justify-content: space-between;
 }
 
-#player-1{
-    display:flex;
-    align-items: center;
+.bg-active {
+  background-color: rgba(254, 213, 99, 0.373);
 }
 
-span{
-    font-size: 25px;
+#player-1 {
+  display: flex;
+  align-items: center;
 }
 
-#player-2{
-    display:flex;
-    align-items: center;
+span {
+  font-size: 25px;
 }
 
-#player-1 img{
-    width:50px;
-    height:50px;
-    margin-right:20px;
+#player-2 {
+  display: flex;
+  align-items: center;
 }
 
-#player-2 img{
-    width:50px;
-    height:50px;
-    margin-right:20px;
+#player-1 img {
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
 }
 
-
-table{
-    width:399px;
-    height:399px;
-    border-collapse: collapse;
+#player-2 img {
+  width: 50px;
+  height: 50px;
+  margin-right: 20px;
 }
 
-table td{
-    width:133px;
-    height:133px;
-    border:2px solid black;
-    position:relative;
-    
+table {
+  width: 399px;
+  height: 399px;
+  border-collapse: collapse;
 }
 
-table td:hover{
-    cursor: pointer;
-    background-color: rgba(254, 249, 181, 0.744);
+table td {
+  width: 133px;
+  height: 133px;
+  border: 2px solid black;
+  position: relative;
 }
 
-table tr:first-child td{
-    border-top:0;
+table td:hover {
+  cursor: pointer;
+  background-color: rgba(254, 249, 181, 0.744);
 }
 
-table tr:last-child td{
-    border-bottom:0;
+table tr:first-child td {
+  border-top: 0;
 }
 
-table tr td:first-child{
-    border-left:0;
+table tr:last-child td {
+  border-bottom: 0;
 }
 
-table tr td:last-child{
-    border-right:0;
+table tr td:first-child {
+  border-left: 0;
 }
 
-.shape{
-    width:120px;
-    height:120px;
-    position:absolute;
-    top:5px;
-    left:5px;
+table tr td:last-child {
+  border-right: 0;
 }
 
-.d-none{
-    display: none;
+.shape {
+  width: 120px;
+  height: 120px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
 }
 
-.horizontal-line{
-    width: 300px;
-    background-color: rgba(0,0,0,0.5);
-    height: 20px;
-    position: absolute;
-    z-index:1;
-    transform:scaleX(0.0);
-    transition:transform 250ms ease-in-out
+.d-none {
+  display: none;
 }
 
-.make-vertical{
-    transform: rotate(90deg) scaleX(0.0);
-    top:500px;
-    
+.horizontal-line {
+  width: 300px;
+  background-color: rgba(0, 0, 0, 0.5);
+  height: 20px;
+  position: absolute;
+  z-index: 1;
+  transform: scaleX(0);
+  transition: transform 250ms ease-in-out;
 }
 
-#restart{
-    position: absolute;
-    bottom:100px;
-    background-color:orange;
-    width:200px;
-    height:50px;
-    font-size: 25px;
+.make-vertical {
+  transform: rotate(90deg) scaleX(0);
+  top: 400px;
 }
 
-#winner{
-    position:absolute;
-    top:20px;
-    font-weight: 700;
-    font-size: 20px;
-    background-color: orange;
-    color:white;
-    width:150px;
-    text-align: center;
-    
+#restart {
+  position: absolute;
+  top: 700px;
+  background-color: orange;
+  width: 200px;
+  height: 50px;
+  font-size: 25px;
+  z-index: 10;
 }
 
-#restart:hover{
-    background-color: rgb(255, 199, 95);
-    cursor: pointer;
-
+#winner {
+  padding-top: 20px;
+  text-align: center;
+  position: absolute;
+  top: 5px;
+  font-weight: 700;
+  font-size: 25px;
+  background-color: orange;
+  color: white;
+  width: 250px;
+  height: 50px;
+  z-index: 10;
+  box-shadow: 2px 2px 2px 2px rgb(230, 227, 227);
 }
 
-
-.gameover{
-    width:400px;
-    height: 500px;
-    z-index:3;
-    transition: all 250ms ease-in-out;
-    animation: zoomIn 250ms ease-in-out;
-    position: absolute;
+#restart:hover {
+  background-color: rgb(255, 199, 95);
+  cursor: pointer;
 }
 
-@keyframes zoomIn{
-    from{
-        opacity: 0;
-        scale:0;
-    }
-    to{
-        opacity: 0.8;
-        scale:1.0
-    }
+.gameover {
+  top: 50px;
+  width: 450px;
+  height: 650px;
+  z-index: 3;
+  transition: all 250ms ease-in-out;
+  animation: zoomIn 250ms ease-in-out;
+  position: absolute;
 }
 
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    scale: 0;
+  }
+  to {
+    opacity: 0.8;
+    scale: 1;
+  }
+}
 
-@media screen and (max-width:620px){
-
-   span{
+@media screen and (max-width: 620px) {
+  span {
     font-size: 16px;
-   }
+  }
 
-   .player-panel{
-    width:280px;
-   }
+  .player-panel {
+    width: 280px;
+  }
 
-   #player-1 img{
-    width:30px;
-    height:30px;
-    margin-right:10px;
-}
+  #player-1 img {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
 
-#player-2 img{
-    width:30px;
-    height:30px;
-    margin-right:20px;
-}
+  #player-2 img {
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+  }
 
-table{
-    width:270px;
-    height:270px;
-}
+  table {
+    width: 270px;
+    height: 270px;
+  }
 
-table td{
-    width:90px;
-    height:90px;
-}
+  table td {
+    width: 90px;
+    height: 90px;
+  }
 
-.shape{
-    width:80px;
-    height:80px;
-}
+  .shape {
+    width: 80px;
+    height: 80px;
+  }
 
-.horizontal-line{
+  .horizontal-line {
     width: 200px;
-}
+    height: 15px;
+  }
 
+  #winner {
+    font-size: 18px;
+    width: 200px;
+    height: 30px;
+  }
+
+  .gameover {
+    width: 300px;
+    height: 400px;
+  }
+
+  #container-game {
+    width: 300px;
+    height: 500px;
+  }
+
+  #restart {
+    position: absolute;
+    top: 450px;
+    background-color: orange;
+    width: 150px;
+    height: 30px;
+    font-size: 16px;
+    z-index: 10;
+  }
+
+  #line6 {
+    top: 290px !important;
+  }
+
+  #line7 {
+    top: 290px !important;
+  }
+
+  #line0 {
+    top: 200px !important;
+  }
+
+  #line1 {
+    top: 290px !important;
+  }
+
+  #line2 {
+    top: 380px !important;
+  }
+
+  #line3 {
+    left: -40px !important;
+  }
+
+  #line4 {
+    left: 50px !important;
+  }
+
+  #line5 {
+    left: 140px !important;
+  }
+
+  .make-vertical {
+    top: 300px !important;
+  }
 }
