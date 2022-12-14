@@ -19,7 +19,6 @@ function fillShape(i) {
   if (!fields[i] && !gameover) {
     changeCurrentShape();
     fields[i] = currentShape;
-    console.log(fields);
     draw();
     getWinner();
   }
@@ -38,6 +37,16 @@ function draw() {
 
 function getWinner() {
   let winner;
+  checkHorizotal();
+  checkVertical();
+  checkVertical();
+  if (!winner) {
+    checkListComplete();
+  }
+  setWinner(winner, gameover);
+}
+
+function checkHorizotal() {
   if (fields[0] == fields[1] && fields[0] == fields[2] && fields[0]) {
     winner = fields[0];
     document.getElementById("line0").style.transform = "scaleX(1.3)";
@@ -50,6 +59,9 @@ function getWinner() {
     winner = fields[6];
     document.getElementById("line2").style.transform = "scaleX(1.3)";
   }
+}
+
+function checkVertical() {
   if (fields[0] == fields[3] && fields[0] == fields[6] && fields[0]) {
     winner = fields[0];
     document.getElementById("line3").style.transform =
@@ -65,6 +77,9 @@ function getWinner() {
     document.getElementById("line5").style.transform =
       "scaleX(1.3) rotate(90deg)";
   }
+}
+
+function checkDiagonal() {
   if (fields[0] == fields[4] && fields[0] == fields[8] && fields[0]) {
     winner = fields[0];
     document.getElementById("line6").style.transform =
@@ -75,10 +90,6 @@ function getWinner() {
     document.getElementById("line7").style.transform =
       "scaleX(1.3) rotate(-53deg)";
   }
-  if (!winner) {
-    checkListComplete();
-  }
-  setWinner(winner, gameover);
 }
 
 function setWinner(winner, gameover) {
@@ -113,6 +124,11 @@ function restart() {
   gameover = false;
   end = false;
   winnerPerson = "";
+  currentShape = "circle";
+  resetClasslists();
+}
+
+function resetClasslists() {
   for (let i = 0; i < 9; i++) {
     document.getElementById("circle" + i).classList.add("d-none");
     document.getElementById("cross" + i).classList.add("d-none");
@@ -123,6 +139,7 @@ function restart() {
   document.getElementById("gameover").classList.add("d-none");
   document.getElementById("restart").classList.add("d-none");
   document.getElementById("winner").classList.add("d-none");
+  document.getElementById("player-1").classList.add("bg-active");
 }
 
 function checkListComplete() {

@@ -150,7 +150,7 @@ table tr td:last-child {
 .gameover {
   top: 50px;
   width: 450px;
-  height: 650px;
+  height: 600px;
   z-index: 3;
   transition: all 250ms ease-in-out;
   animation: zoomIn 250ms ease-in-out;
